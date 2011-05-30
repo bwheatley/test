@@ -1,0 +1,17 @@
+To run this
+
+make
+
+It will put a gocurses file into your directory that you can run
+./gocurses
+
+and if you have the required packages on your box you should be ok.
+
+In ubuntu 11.04 you can find the ncurses.h header file in
+libncurses5-dev: /usr/include/ncurses.h
+
+Which you can install by doing
+sudo aptitude install libncurses5-dev
+
+If you are getting weird errors compiling make sure you have the prereq packages.
+
