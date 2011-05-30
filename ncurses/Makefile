@@ -9,8 +9,8 @@ CGOFILES=\
 
 CGO_LDFLAGS=-lncurses
 
-CLEANFILES+= $(TARG) main whisperdick
-CGO_OFILES+= whisperdick
+CLEANFILES+= $(TARG) main 
+CGO_OFILES+= 
 OBJECTS = main.go talkmore.go
 
 include $(GOROOT)/src/Make.pkg
@@ -27,12 +27,13 @@ include $(GOROOT)/src/Make.pkg
 
 main: install main.go talkmore.go
 	$(GC) $(OBJECTS)
-	$(LD) -o $@ main.$O
+	$(LD) -o $(TARG) main.$O
 
-main1: install main.go talkmore.go
-	$(GC) $(OBJECTS)
-	$(LD) -o $(TARG) .$O
+#all: install main.go talkmore.go
+#	$(GC) $(OBJECTS)
+#	$(LD) -o $(TARG) main.$O
 
-all: install main.go talkmore.go
+%: install $(OBJECTS)
 	$(GC) $(OBJECTS)
-	$(LD) -o $@ $(TARG).$O
+	$(LD) -o $(TARG) main.$O
+
